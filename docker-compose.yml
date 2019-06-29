@@ -1,0 +1,51 @@
+version: "3.7"
+services:
+  elasticsearch:
+    hostname: elasticsearch
+    container_name: elasticsearch
+    image: "elasticsearch:6.7.0"
+    environment:
+      - "ES_JAVA_OPTS=-Xms2g -Xmx2g"
+    ports:
+      - "9200:9200"
+      - "9300:9300"
+    # Uncomment this to save elaticsearch data in order to use later
+    # volumes:
+      # - ./volumes/elasticsearch/esdata1:/usr/share/elasticsearch/data
+    networks:
+      - ml-example
+  kibana:
+    hostname: kibana
+    container_name: kibana
+    image: docker.elastic.co/kibana/kibana:6.7.0
+    ports:
+      - "5601:5601"
+    depends_on: 
+      - elasticsearch
+    networks:
+      - ml-example
+  filebeat:
+    hostname: filebeat
+    container_name: filebeat
+    image: docker.elastic.co/beats/filebeat:6.7.0
+    depends_on: 
+      - elasticsearch
+    environment:
+      - ELASTICSEARCH_HOST=elasticsearch
+      - KIBANA_HOST=kibana
+    volumes:
+      - ./volumes/filebeat/config/filebeat.yml:/usr/share/filebeat/filebeat.yml
+      - ./volumes/filebeat/config/twitter.json:/usr/share/filebeat/twitter.json
+      - ./volumes/filebeat/dataset:/data/dataset
+    networks:
+      - ml-example
+    # entrypoint: /bin/bash
+    # stdin_open: true
+    # tty: true
+
+networks:
+  ml-example:
+    ipam:
+      driver: default
+      config:
+       - subnet: 172.19.0.0/24
