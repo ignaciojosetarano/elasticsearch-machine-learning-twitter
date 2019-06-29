@@ -1,0 +1,21 @@
+filebeat.inputs:
+- type: log
+  enabled: true
+  paths:
+    - /data/dataset/tweets.csv
+  fields:
+    topic: apm
+  json.keys_under_root: true
+output.elasticsearch:
+  hosts: ["elasticsearch:9200"]
+  index: twitter-ml
+setup.template:
+  name: 'twitter'
+  pattern: 'twitter-*'
+  json:
+    enabled: true
+    path: "twitter.json"
+    name: "twitter"
+  overwrite: true
+setup.kibana:
+  host: "kibana:5601"
