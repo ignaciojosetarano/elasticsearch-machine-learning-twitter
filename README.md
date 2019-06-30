@@ -12,6 +12,7 @@ Docker or Docker for Windows, docker-compose is used to environment deploy.
 
 For windows: 
 ```bin/start-up.bat```
+
 For linux: 
 ```bin/start-up.sh```
 
