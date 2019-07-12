@@ -2,8 +2,6 @@
 
 English | [Español](./README-es.md)
 
-  Pendiente: Índices de elastic y jobs de machine learning. Traducir a español.
-
 ## Requeriments
 
 Docker or Docker for Windows, docker-compose is used to environment deploy.
