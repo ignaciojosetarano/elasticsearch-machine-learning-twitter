@@ -22,7 +22,7 @@ Stop: ```bin/stop-remove.sh```
 
 You can easily deploy without using bin scripts doing ```docker-compose up```, 'up' command create containers, network and start all the services. To stop and remove all containers and network, you can do ```docker-compose down```. 
 
-Also you can uncomment the docker-compose lines 'volumes' for elasticsearch and persist the information you generate in kibana (for example, Twitter data and machine learnin jobs).
+Also you can uncomment the docker-compose lines 'volumes' for elasticsearch service in docker-compose.yml file and persist the information you generate in kibana (i.e. machine learning jobs). To deploy the environment in the future is unnecessary up filebeat (ingest dataset job), so you can do ```docker-compose up kibana``` which automatically deploy elasticsearch too.
 
 ## Software environment
 
