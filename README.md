@@ -1,6 +1,6 @@
 # elasticsearch-machine-learning-twitter
 
-English | [Español](./README.md)
+English | [Español](./README-es.md)
 
   Pendiente: Índices de elastic y jobs de machine learning. Traducir a español.
 
