@@ -6,7 +6,7 @@
 
 El proyecto sirve para ver un ejemplo de cómo utilizar el módulo de machine learning de elasticsearch. El entorno se despliega de forma muy sencilla mediante docker-compose y tanto la ingesta de datos (filebeat) como la generación de índices de elastic y configuraciones se lleva a cabo automáticamente en el despliegue, de forma que el entorno está **totalmente preparado** para la prueba una vez deplegado. El dataset es un conjunto de tweets (en formato *csv*) recopilados en 2017 haciendo un seguimiento de ciertos hashtags asociados con elasticsearch (podría cambiarse por cualquier otro siempre y cuando tenga un formato similar).
 
-Nota: El uso del módulo de machine learning requiere licencia *platinum*, pero para nuestro ejemplo no será necesaria la suscripción ya que Elastic Search permite una prueba gratis de 30 días que se active inmediatamente desde Kibana, que además puede ser extendida.
+Nota: El uso del módulo de machine learning requiere licencia *platinum*, pero para nuestro ejemplo no será necesaria la suscripción ya que Elastic Search permite una prueba gratis de 30 días que se activa inmediatamente desde Kibana, que además puede ser extendida.
 
 ## Requerimientos
 
