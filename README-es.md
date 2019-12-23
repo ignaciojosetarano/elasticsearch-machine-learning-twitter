@@ -62,11 +62,11 @@ Ya podemos navegar de nuevo a la pestaña ***Machine Learning***. Ahora tenemos 
 
 Dentro de dicha interfaz de kibana, vemos que a su vez varias pestañas:
 
-- Job Management: Interfaz para ver los jobs creados, detalles de los mismos, memory status, job state, etc
+- Job Management: Interfaz para ver los jobs creados, detalles de los mismos, memory status, job state, etc.
 - Anomaly Explorer: Heapmap que permite analizar las anomalías por el valor de un campo específico frente al día del mes
-- Single Metric Viewer: Histograma con tabla de información de las anomalías
-- Data Visualizer: Para explorar los datos en caso de ser necesario
-- Settings: permite generar litas de filtros y calendario de acciones
+- Single Metric Viewer: Histograma con tabla de información de las anomalías.
+- Data Visualizer: Para explorar los datos en caso de ser necesario. Permite ver las distribuciones y los "top values" para cada dato del índice, con un número de documentos, por supuesto, limitado.
+- Settings: permite generar litas de filtros y calendario de acciones.
 
 A grosso modo, hay dos tipos de jobs de Machine Learning que se pueden generar (todos los que veremos son para detección de anomalías en series temporales):
 
