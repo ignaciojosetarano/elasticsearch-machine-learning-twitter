@@ -56,7 +56,7 @@ Antes de empezar a crear jobs de Machine Learning, será necesario crear un inde
 
 Vamos a crear ahora los jobs de Machine Learning, que es el objetivo fundamental del tutorial.
 
-En la pestaña *Machine Learning* necesitamos activar la licencia. Es tan simple, que solo hace falta hacer clic en el botón *Start trial*, lo que llevará automáticamente a la interfaz de management y se podrá activar sin necesidad de introducir ninguna información. La licencia nos dará acceso durante 30 días al módulo de Machine Learning y Watchers entre otros...
+En la pestaña *Machine Learning* necesitamos activar la licencia. Es tan simple, que solo hace falta hacer clic en el botón *Start trial*, lo que llevará automáticamente a la interfaz de management y se podrá activar sin necesidad de introducir ninguna información. La licencia nos dará acceso durante 30 días al módulo de Machine Learning y Watchers entre otros.
 
 Ya podemos navegar de nuevo a la pestaña ***Machine Learning***. Ahora tenemos desbloqueado el uso de todas las opciones.
 
@@ -77,11 +77,13 @@ En este ejemplo, vamos a crear un job para analizar el número de tweets por top
 
 Como idea, lo ideal sería tener una monitorización continua de twitter para dichos hashtags y así poder monitorizar mediante machine learning el comportamiento del número de tweets que se publican para un tema específico, pudiendo además hacer uso de los Watchers de elastic para lanzar webhooks a una aplicación específica de gestión de alarmas por ejemplo cuando detectasemos ciertas anomalías.
 
-El job que vamos a configurar es de tipo *Single metric* (aunque lo haremos desde la pestaña de **Advanced**), y tiene la siguiente configuración:
+El job que vamos a crear trata de monitorizar el número de documentos (tweets) que se han indexado diferenciados por el campo topic (recomiendo crear los jobs siempre desde la pestaña **Advanced**), y tiene la siguiente configuración:
 
 - Name: twitter_trends
-- Detectors: high_count (twitter_trends)
+- Detectors: high_count partitionfield="fields.topic"
 - Influencers: "fields.topic", "entities.hashtags.text", "entities.user_mentions.name", "retweeted_status.entities.user_mentions.name", "user.name", "user.location", "entities.urls.display_url", "retweeted_status.entities.hashtags.text", "retweeted_status.entities.urls.display_url"
+
+Nota: Los detectores se pueden configurar para muchas agregaciones, mean, high_mean, sum, count... El significado de high es simple, detecta únicamente valores por encima de lo habitual.
 
 ![Crear job](/assets/createJob.gif)
 
